@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/warroom/static/css/main.ee7bc358.chunk.css",
+    "main.js": "/warroom/static/js/main.961c8e84.chunk.js",
+    "main.js.map": "/warroom/static/js/main.961c8e84.chunk.js.map",
+    "runtime-main.js": "/warroom/static/js/runtime-main.eae3f5bc.js",
+    "runtime-main.js.map": "/warroom/static/js/runtime-main.eae3f5bc.js.map",
+    "static/js/2.45702b77.chunk.js": "/warroom/static/js/2.45702b77.chunk.js",
+    "static/js/2.45702b77.chunk.js.map": "/warroom/static/js/2.45702b77.chunk.js.map",
+    "index.html": "/warroom/index.html",
+    "static/css/main.ee7bc358.chunk.css.map": "/warroom/static/css/main.ee7bc358.chunk.css.map",
+    "static/js/2.45702b77.chunk.js.LICENSE.txt": "/warroom/static/js/2.45702b77.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.eae3f5bc.js",
+    "static/js/2.45702b77.chunk.js",
+    "static/css/main.ee7bc358.chunk.css",
+    "static/js/main.961c8e84.chunk.js"
+  ]
+}
