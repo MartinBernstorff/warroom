@@ -50,7 +50,7 @@ class RateToday extends Component {
     
     render() {
         return (
-        <div className="w-full p-2">
+        <div className="w-full mb-4">
             <h1 className="font-medium text-black text-2xl mb-1">Did you spend yesterday well?</h1>
             <div className="grid grid-cols-8">
                 <button onClick={() => this.rateToday(1)}

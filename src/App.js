@@ -43,7 +43,7 @@ function App(props) {
   return (
     <div className="grid mx-auto max-w-5xl">
       
-      <div className="grid m-4">
+      <div className="grid m-4 gap-4">
         <PropositionInput
           airtable={airtable}
         />
