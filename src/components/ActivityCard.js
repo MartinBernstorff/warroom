@@ -86,7 +86,7 @@ class ActivityCard extends Component {
                     {this.props.notes} {(typeof this.props.duration !== "undefined" ? this.props.duration.toString().toHHMM() : "")} 
                 </div>
 
-                <div className="grid grid-cols-3 mt-2">
+                <div className="grid grid-cols-3 mt-2 gap-2">
                     <button onClick={() => this.delete()} className="w-full rounded-lg py-2 active:border-gray-500 hover:border-gray-300 text-center focus:outline-none active:shadow-sm text-gray-400 text-sm border mr-1">
                         Delete
                     </button>

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import ActivityCard from "./ActivityCard";
+import Todo from "./Record";
 import Airtable from 'airtable-node'
 
-var yesterday = new Date();
+let yesterday = new Date();
 yesterday.setDate(yesterday.getDate() - 1);
+
 var dd = String(yesterday.getDate()).padStart(2, '0');
 var mm = String(yesterday.getMonth() + 1).padStart(2, '0'); //January is 0!
 
@@ -11,9 +12,9 @@ yesterday = dd + '/' + mm;
 
 const airtable = new Airtable({apiKey: 'keywMvCl7aRV4a5af'})
     .base('appMcSmdPtPWcBhIX')
-    .table('Log')
+    .table('Activities')
 
-export default function TaskListNone(props) {
+export default function ActivityListRecents(props) {
 
     const [activities, setActivities] = useState({});
 
@@ -21,7 +22,7 @@ export default function TaskListNone(props) {
         airtable.list({
             maxRecords: 999,
             pageSize: 100,
-            view: "L: Review",
+            view: "L: Recents/routines",
             cellFormat: 'json'
         })
         .then((data) => {
@@ -37,26 +38,22 @@ export default function TaskListNone(props) {
     console.log("Testing " + props.cycle)
 
     return (
-        <div>
+        <div className="mt-2">
+            <h1 className="text-3xl font-bold">This week's streaks</h1>
             <div className="justify-center max-w-full w-full grid grid-cols-2 grid-flow-row-dense gap-2">
                 
                     {activities.length > 0 ? (
                         activities
                         /* .filter(record => record.fields["Concluded formula"] === 0) */
                         .sort(function (a, b) {
-                            return a.fields["Concluded formula"] - b.fields["Concluded formula"];
+                            return a.fields["Random 1-10 half hour"] - b.fields["Random 1-10 half hour"];
                         })
-                        .filter(record => record.fields["exec-date"] === yesterday)
-                        .filter(record => typeof record.fields["time-of-day"] === "undefined")
                         .map((record) => (
-                            <ActivityCard
-                                name={record.fields.what_string}
+                            <Todo
+                                name={record.fields.Name}
                                 key={record.id}
                                 id={record.id}
-                                notes={record.fields["Learning points"]}
-                                goals={record.fields["goals_string"]}
-                                concluded={record.fields["Concluded formula"]}
-                                duration={record.fields["Duration"]}
+                                goals={record.fields["Goals text"]}
                             />
                         ))
                     ) : (
