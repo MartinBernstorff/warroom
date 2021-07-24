@@ -11,6 +11,7 @@ import PropositionInput from './components/PropositionInput'
 import "react-multi-carousel/lib/styles.css";
 import Airtable from 'airtable-node'
 import ActivityListRecents from './components/ActivityListRecents';
+import KernelList from './components/KernelList';
 
 var today = new Date();
 var yesterday = new Date();
@@ -99,6 +100,9 @@ function App(props) {
           </div>
           <div>
             Gmail
+          </div>
+          <div>
+            <KernelList />
           </div>
         </Carousel>
       </div>
