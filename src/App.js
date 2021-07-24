@@ -1,17 +1,20 @@
 import React, { useState } from 'react'
-import RateToday from './components/RateToday';
-import TaskListMorning from './components/TaskListMorning'
-import TaskListAfternoon from './components/TaskListAfternoon'
-import TaskListEvening from './components/TaskListEvening'
-import TaskListNone from './components/TaskListNone';
 import Carousel from "react-multi-carousel";
-import ValueList from './components/ValueList'
-import TaskList from './components/TaskList'
 import PropositionInput from './components/PropositionInput'
 import "react-multi-carousel/lib/styles.css";
 import Airtable from 'airtable-node'
-import ActivityListRecents from './components/ActivityListRecents';
-import KernelList from './components/KernelList';
+
+
+import {
+  Route,
+  NavLink,
+  HashRouter
+} from "react-router-dom";
+
+import Yesterday from './components/Yesterday'
+import Values from './components/Values';
+import Today from './components/Today';
+
 
 var today = new Date();
 var yesterday = new Date();
@@ -43,70 +46,25 @@ function App(props) {
   console.log(run)
 
   return (
-    <div className="grid mx-auto max-w-5xl">
-      
-      <div className="grid m-4 gap-4">
-        <PropositionInput
-          airtable={airtable}
-        />
-      
-        <Carousel 
-          responsive={responsive}
-          showDots={false}
-          showArrows={false}
-          swipeable={true}
-          draggable={true}
-          removeArrowOnDeviceType={["desktop", "tablet", "mobile"]}
-        >
-          <div>
-            Add today's date as multiple choice option
-          </div>
-          <div>
-            <RateToday />
-            <TaskListNone
-              reRun={reRun}
-            />
-            <TaskListMorning 
-              reRun={reRun}
-            />
-            <TaskListAfternoon
-              reRun={reRun}
-            />
-            <TaskListEvening
-              reRun={reRun}
-            />
-          </div>
-          <div>
-            <ValueList 
-              filter="False"
-              reRun={reRun}
-            />
-          </div>
-          <div>
-            <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Europe%2FCopenhagen&amp;src=bWFydGluYmVybnN0b3JmZkBnbWFpbC5jb20&amp;src=NnAwNjZuMW9oYTlnbThyaTVybG4zcWMwaWdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=bGYzdmlsa3RpbnZqYm1xNXEzMW1pZTV0dmNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=Ym9oaHVxOWRybWV0YTM5czBydWFyMTFrZmNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=aXE0Z2tkZnAxaDFmYTRpbm5hZHNiY21ob3NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=OXU4amp0YmNrMHB1NTUzbWpkNGQwZWpobmNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=cDl1dmRyb2NvNjc5bnZyMHN2YjQ5bGtiYThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=dmJiaW52OTExN2VocTF1ODVkN3JzaXIwc2xpaGc5ZTJAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;src=MjUwdTlmMmY1ZTFtanZwYTJ0cGJlbDMxMWxxMzh0dmFAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;src=dGU4cG9wZ2NsbWw3Ymo3NDV0c2k3Z3BhZXFuaTljazFAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;src=NHNhNTEyYTU0anN2MDFmNHNqZTg3cDQ0b3RxaXJrbmpAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23691426&amp;color=%2300a900&amp;color=%2393afb2&amp;color=%23a50000&amp;color=%23711a76&amp;color=%230042c7&amp;color=%23009688&amp;color=%234285F4&amp;color=%23616161&amp;color=%23F6BF26&amp;color=%23039BE5&amp;showTitle=0&amp;mode=WEEK&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0" width="100%" height="800" frameborder="0" scrolling="no"></iframe>
-          </div>
-          <div>
-            <ActivityListRecents />
-            <TaskList 
-              filter="False"
-              reRun={reRun}
-            />
-          </div>
-          <div>
-            Taskheat
-          </div>
-          <div>
-            Todoist
-          </div>
-          <div>
-            Gmail
-          </div>
-          <div>
-            <KernelList />
-          </div>
-        </Carousel>
+    <HashRouter>
+      <div className="grid mx-auto max-w-5xl">
+        <div className="grid m-4 gap-4 content grid-cols-1">
+          <PropositionInput
+            airtable={airtable}
+          />
+
+          <ul className="flex space-x-2 w-full">
+            <li><NavLink to="/yesterday" className="flex-grow rounded-lg py-2 px-3 active:border-gray-500 hover:border-gray-300 text-center focus:outline-none active:shadow-sm text-gray-400 text-sm border">Yesterday</NavLink></li>
+            <li><NavLink to="/values" className="flex-grow rounded-lg py-2 px-3 active:border-gray-500 hover:border-gray-300 text-center focus:outline-none active:shadow-sm text-gray-400 text-sm border">Values</NavLink></li>
+            <li><NavLink to="/today" className="flex-grow rounded-lg py-2 px-3 active:border-gray-500 hover:border-gray-300 text-center focus:outline-none active:shadow-sm text-gray-400 text-sm border">Today</NavLink></li>
+          </ul>
+
+          <Route path="/yesterday" component={Yesterday}/>
+          <Route path="/values" component={Values}/>
+          <Route path="/today" component={Today}/>
+        </div>
       </div>
-    </div>
+    </HashRouter>
   );
 }
 
