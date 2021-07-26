@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Todo from "./Record";
+import MenuRecord from "./Record";
 import Airtable from 'airtable-node'
 
 const airtable = new Airtable({apiKey: 'keywMvCl7aRV4a5af'})
@@ -37,7 +37,7 @@ export default function KernelList(props) {
                     activities
                     .sort((a,b) => (a.fields["Rting_UL"] < b.fields["Rting_UL"]) ? 1 : ((b.fields["Rting_UL"] < a.fields["Rting_UL"]) ? -1 : 0))
                     .map((record) => (
-                        <Todo
+                        <MenuRecord
                             name={record.fields.name_string}
                             key={record.id}
                             id={record.id}

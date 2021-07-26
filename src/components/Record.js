@@ -8,7 +8,7 @@ const Log = new Airtable({apiKey: 'keywMvCl7aRV4a5af'})
 const today = new Date();
 const today_string = today.toISOString().substring(8,10) + "/" + today.toISOString().substring(5,7);
 
-class Todo extends Component {
+class MenuRecord extends Component {
     fin = () => {
         var element = document.getElementById(this.props.id);
         element.style.opacity = "0.1";
@@ -95,4 +95,4 @@ class Todo extends Component {
     }
 }
 
-export default Todo
+export default MenuRecord

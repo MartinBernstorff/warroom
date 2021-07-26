@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Carousel from "react-multi-carousel";
 import ActivityListRecents from './ActivityListRecents';
 import TaskList from './TaskList'
+import KernelList from './KernelList';
 
 const responsive = {
   mobile: {
@@ -27,7 +28,6 @@ class Yesterday extends Component {
             </div>
             <div>
               <ActivityListRecents />
-              <TaskList />
             </div>
             <div>
               Taskheat
@@ -37,6 +37,12 @@ class Yesterday extends Component {
             </div>
             <div>
               Gmail
+            </div>
+            <div>
+              <KernelList />
+            </div>            
+            <div>
+              <TaskList />
             </div>
           </Carousel>
       </div>

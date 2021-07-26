@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Todo from "./Record";
+import MenuRecord from "./Record";
 import Airtable from 'airtable-node'
 
 let yesterday = new Date();
@@ -49,7 +49,7 @@ export default function ActivityListRecents(props) {
                             return a.fields["Random 1-10 half hour"] - b.fields["Random 1-10 half hour"];
                         })
                         .map((record) => (
-                            <Todo
+                            <MenuRecord
                                 name={record.fields.Name}
                                 key={record.id}
                                 id={record.id}

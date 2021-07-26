@@ -7,7 +7,7 @@ const Log = new Airtable({apiKey: 'keywMvCl7aRV4a5af'})
     .table('Log')
 
 const today = new Date();
-const today_string = today.toISOString().substring(9,10) + "/" + today.toISOString().substring(9,10);
+const today_string = today.toISOString().substring(8,10) + "/" + today.toISOString().substring(5,7);
 
 String.prototype.toHHMM = function () {
     var sec_num = parseInt(this, 10); // don't forget the second param
