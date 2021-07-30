@@ -54,7 +54,7 @@ function App(props) {
             airtable={airtable}
           />
 
-          <ul className="flex space-x-2 w-full">  
+          <ul className="grid grid-cols-3 w-96 gap-2">  
             <li><NavLinkButton to="/yesterday" text="Yesterday" /></li>
             <li><NavLinkButton to="/values" text="Values" /></li>
             <li><NavLinkButton to="/today" text="Today" /></li>

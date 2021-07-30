@@ -14,7 +14,7 @@ class NavLinkButton extends Component {
     render () {
         return (
             <div>
-                <NavLink to={this.props.to} className="flex-grow rounded-lg py-2 px-3 active:border-gray-500 hover:border-gray-300 text-center focus:outline-none active:shadow-sm text-gray-400 text-sm border">{this.props.text}</NavLink>
+                <NavLink to={this.props.to} className="block rounded-lg py-2 px-3 active:border-gray-500 hover:border-gray-300 text-center focus:outline-none active:shadow-sm text-gray-400 text-sm border">{this.props.text}</NavLink>
             </div>
         )
     }

@@ -27,18 +27,22 @@ class PropositionInput extends React.Component {
     console.log('A form was submitted with: ' + this.state.name);
 
     Activities.create({"fields": {
-      "Name": this.state.name
+       "Name": this.state.name
     }}).then(resp => {
-      console.log(resp)
-      Log.create({"fields": {
-        "What?": [resp.id],
-        "Context": "Leisure",
-        "exec-date": today_string,
-        "Group #": 5
-      }}).then(resp => {
-              console.log(resp)
-              document.getElementById("PropositionInput").reset();
-      });
+        console.log(resp)
+        Log.create({"fields": {
+          "What?": [resp.id],
+          "Context": "Leisure",
+          "exec-date": today_string,
+          "Group #": 5
+        }}).then(resp => {
+          console.log(resp)
+
+          if (resp.error.message ) {
+            alert(resp.error.message)
+          }
+          document.getElementById("PropositionInput").reset();
+        })
     });
   }
 
