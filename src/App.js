@@ -3,6 +3,7 @@ import Carousel from "react-multi-carousel";
 import PropositionInput from './components/PropositionInput'
 import "react-multi-carousel/lib/styles.css";
 import Airtable from 'airtable-node'
+import NavLinkButton from './components/NavLinkButton';
 
 
 import {
@@ -53,15 +54,17 @@ function App(props) {
             airtable={airtable}
           />
 
-          <ul className="flex space-x-2 w-full">
-            <li><NavLink to="/yesterday" className="flex-grow rounded-lg py-2 px-3 active:border-gray-500 hover:border-gray-300 text-center focus:outline-none active:shadow-sm text-gray-400 text-sm border">Yesterday</NavLink></li>
-            <li><NavLink to="/values" className="flex-grow rounded-lg py-2 px-3 active:border-gray-500 hover:border-gray-300 text-center focus:outline-none active:shadow-sm text-gray-400 text-sm border">Values</NavLink></li>
-            <li><NavLink to="/today" className="flex-grow rounded-lg py-2 px-3 active:border-gray-500 hover:border-gray-300 text-center focus:outline-none active:shadow-sm text-gray-400 text-sm border">Today</NavLink></li>
+          <ul className="flex space-x-2 w-full">  
+            <li><NavLinkButton to="/yesterday" text="Yesterday" /></li>
+            <li><NavLinkButton to="/values" text="Values" /></li>
+            <li><NavLinkButton to="/today" text="Today" /></li>
           </ul>
 
           <Route path="/yesterday" component={Yesterday}/>
           <Route path="/values" component={Values}/>
           <Route path="/today" component={Today}/>
+
+          
         </div>
       </div>
     </HashRouter>

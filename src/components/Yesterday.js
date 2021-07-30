@@ -5,6 +5,9 @@ import TaskListAfternoon from './TaskListAfternoon'
 import TaskListEvening from './TaskListEvening'
 import TaskListNone from './TaskListNone';
 import Carousel from "react-multi-carousel";
+import AirtableDate from "./AirtableDate";
+import Airtable from "airtable-node";
+import ResetValues from "./ResetValues";
 
 const responsive = {
   mobile: {
@@ -17,6 +20,7 @@ class Yesterday extends Component {
   render() {
     return (
       <div>
+        <ResetValues />
         <Carousel 
             responsive={responsive}
             showDots={false}
@@ -26,7 +30,7 @@ class Yesterday extends Component {
             removeArrowOnDeviceType={["desktop", "tablet", "mobile"]}
           >
             <div>
-              Add today's date as multiple choice option
+              <AirtableDate />
             </div>
             <div>
               <RateToday/>
