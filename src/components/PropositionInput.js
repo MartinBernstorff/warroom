@@ -38,8 +38,10 @@ class PropositionInput extends React.Component {
         }}).then(resp => {
           console.log(resp)
 
-          if (resp.error.message ) {
-            alert(resp.error.message)
+          if (typeof resp.error !== "undefined") {
+            if (resp.error.message) {
+              alert(resp.error.message)
+            }
           }
           document.getElementById("PropositionInput").reset();
         })
