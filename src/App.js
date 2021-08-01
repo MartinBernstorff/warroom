@@ -56,10 +56,10 @@ function App(props) {
           />
 
           <ul className="grid grid-cols-4 gap-2">  
-            <li><NavLinkButton to="/yesterday" text="Yesterday" /></li>
+            <li><NavLinkButton to="/yesterday" text="Review" /></li>
             <li><NavLinkButton to="/values" text="Values" /></li>
-            <li><NavLinkButton to="/today" text="Add to today" /></li>
-            <li><NavLinkButton to="/propositions" text="Propositions" /></li>
+            <li><NavLinkButton to="/today" text="Plan" /></li>
+            <li><NavLinkButton to="/propositions" text="Today" /></li>
           </ul>
 
           <Route path="/yesterday" component={Yesterday}/>
