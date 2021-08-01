@@ -27,7 +27,7 @@ class Yesterday extends Component {
     return (
       <div>
         <HashRouter>
-        <ul className="grid grid-rows-2 grid-cols-3 gap-2 w-96">
+        <ul className="grid grid-rows-2 grid-cols-3 gap-2 max-w-md">
           
           <li><NavLinkButton to="/today/Calendar" text="Calendar" /></li>
           <li><NavLinkButton to="/today/Todoist" text="Todoist" /></li>

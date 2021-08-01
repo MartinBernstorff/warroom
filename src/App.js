@@ -4,6 +4,7 @@ import PropositionInput from './components/PropositionInput'
 import "react-multi-carousel/lib/styles.css";
 import Airtable from 'airtable-node'
 import NavLinkButton from './components/NavLinkButton';
+import Propositions from './components/Propositions';
 
 
 import {
@@ -48,22 +49,23 @@ function App(props) {
 
   return (
     <HashRouter>
-      <div className="grid mx-auto max-w-5xl">
+      <div className="grid mx-auto max-w-3xl">
         <div className="grid m-4 gap-4 content grid-cols-1">
           <PropositionInput
             airtable={airtable}
           />
 
-          <ul className="grid grid-cols-3 w-96 gap-2">  
+          <ul className="grid grid-cols-4 gap-2">  
             <li><NavLinkButton to="/yesterday" text="Yesterday" /></li>
             <li><NavLinkButton to="/values" text="Values" /></li>
-            <li><NavLinkButton to="/today" text="Today" /></li>
+            <li><NavLinkButton to="/today" text="Add to today" /></li>
+            <li><NavLinkButton to="/propositions" text="Propositions" /></li>
           </ul>
 
           <Route path="/yesterday" component={Yesterday}/>
           <Route path="/values" component={Values}/>
           <Route path="/today" component={Today}/>
-
+          <Route path="/propositions" component={Propositions}/>
           
         </div>
       </div>
