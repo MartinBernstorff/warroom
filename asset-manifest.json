@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/warroom/static/css/main.ee7bc358.chunk.css",
-    "main.js": "/warroom/static/js/main.f2ee5392.chunk.js",
-    "main.js.map": "/warroom/static/js/main.f2ee5392.chunk.js.map",
+    "main.js": "/warroom/static/js/main.2aa2d4d5.chunk.js",
+    "main.js.map": "/warroom/static/js/main.2aa2d4d5.chunk.js.map",
     "runtime-main.js": "/warroom/static/js/runtime-main.c77d0b1d.js",
     "runtime-main.js.map": "/warroom/static/js/runtime-main.c77d0b1d.js.map",
     "static/css/2.d4230d6d.chunk.css": "/warroom/static/css/2.d4230d6d.chunk.css",
-    "static/js/2.d564b89b.chunk.js": "/warroom/static/js/2.d564b89b.chunk.js",
-    "static/js/2.d564b89b.chunk.js.map": "/warroom/static/js/2.d564b89b.chunk.js.map",
+    "static/js/2.5708e494.chunk.js": "/warroom/static/js/2.5708e494.chunk.js",
+    "static/js/2.5708e494.chunk.js.map": "/warroom/static/js/2.5708e494.chunk.js.map",
     "index.html": "/warroom/index.html",
     "static/css/2.d4230d6d.chunk.css.map": "/warroom/static/css/2.d4230d6d.chunk.css.map",
     "static/css/main.ee7bc358.chunk.css.map": "/warroom/static/css/main.ee7bc358.chunk.css.map",
-    "static/js/2.d564b89b.chunk.js.LICENSE.txt": "/warroom/static/js/2.d564b89b.chunk.js.LICENSE.txt",
+    "static/js/2.5708e494.chunk.js.LICENSE.txt": "/warroom/static/js/2.5708e494.chunk.js.LICENSE.txt",
     "static/media/styles.css": "/warroom/static/media/revicons.e8746a62.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.c77d0b1d.js",
     "static/css/2.d4230d6d.chunk.css",
-    "static/js/2.d564b89b.chunk.js",
+    "static/js/2.5708e494.chunk.js",
     "static/css/main.ee7bc358.chunk.css",
-    "static/js/main.f2ee5392.chunk.js"
+    "static/js/main.2aa2d4d5.chunk.js"
   ]
 }
