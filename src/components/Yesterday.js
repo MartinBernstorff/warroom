@@ -34,10 +34,10 @@ class Yesterday extends Component {
             </div>
             <div>
               <RateToday/>
-              <TaskListNone/>
               <TaskListMorning/>
               <TaskListAfternoon/>
               <TaskListEvening/>
+              <TaskListNone/>
             </div>
           </Carousel>
       </div>

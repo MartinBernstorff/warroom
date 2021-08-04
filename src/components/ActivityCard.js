@@ -65,50 +65,45 @@ class ActivityCard extends Component {
     render() {
         return (
         <div>
-            <a href = {this.href} className={"shadow-sm active:border-gray-500 group block rounded-lg p-2 sm:p-4 hover:border-gray-300 m-0 text-left border " + (this.props.promotion > 0 ? "opacity-25" : "")} id={this.props.id}>
-                <div className="grid">
-                    <div className="font-medium text-black text-2xl mb-1">{this.props.name}</div>
-                </div>
+            <a href = {this.href} className={"active:border-gray-500 group block rounded-lg p-2 sm:p-2 hover:border-gray-300 m-0 text-left border " + (this.props.promotion > 0 ? "opacity-25" : "")} id={this.props.id}>
+                <div className="flex gap-2 items-stretch">
+                    <div className="grid w-5/12 items-center grid-cols-6">
+                        <div className="col-span-5 text-sm">
+                                {this.props.name}
+                                <div className="text-xs text-gray-300">{this.props.notes}</div>
+                        </div>
 
-                <div className="space-y-0">
-                    {'goals' in this.props && typeof this.props.goals !== "undefined" ? (
-                            this.props.goals
-                                .split(",")
-                                .map((goal) => (
-                                    <div className="inline-block rounded py-1 px-1 bg-gray-300 text-white mr-1" style={{fontSize: "0.6rem"}}>{goal}</div>
-                                ))
-                            ) : (
-                                ""
-                    )}
-                </div>
+                        <div className="justify-end text-gray-200 font-light text-sm">
+                        {(typeof this.props.duration !== "undefined" ? this.props.duration.toString().toHHMM() : "")} 
+                        </div>
+                    </div>
 
-                <div>
-                    {this.props.notes} {(typeof this.props.duration !== "undefined" ? this.props.duration.toString().toHHMM() : "")} 
-                </div>
+                    <div className="w-7/12 flex gap-2">
+                        <div className="w-9/12 grid grid-cols-8">
+                            <RateButton val="1" id={this.props.id} rating={this.props.rating} style="rounded-l-lg border-l"/>
+                            <RateButton val="2" id={this.props.id} rating={this.props.rating} />
+                            <RateButton val="3" id={this.props.id} rating={this.props.rating} />
+                            <RateButton val="4" id={this.props.id} rating={this.props.rating} />
+                            <RateButton val="5" id={this.props.id} rating={this.props.rating} />
+                            <RateButton val="6" id={this.props.id} rating={this.props.rating} />
+                            <RateButton val="7" id={this.props.id} rating={this.props.rating} />
+                            <RateButton val="8" id={this.props.id} style="rounded-r-lg"/>
+                        </div>
 
-                <div className="grid grid-cols-3 mt-2 gap-2">
-                    <button onClick={() => this.delete()} className="w-full rounded-lg py-2 active:border-gray-500 hover:border-gray-300 text-center focus:outline-none active:shadow-sm text-gray-400 text-sm border mr-1">
-                        Delete
-                    </button>
+                        <div className="w-3/12 grid grid-cols-3 gap-2 h-4">
+                            <button onClick={() => this.delete()} className="border rounded-lg w-full px-2 py-1 border-gray-100 active:border-gray-500 hover:bg-gray-100 text-center focus:outline-none active:shadow-sm text-xs text-gray-200">
+                                D
+                            </button>
 
-                    <button onClick={() => this.replan()} className="w-full rounded-lg py-2 active:border-gray-500 hover:border-gray-300 text-center focus:outline-none active:shadow-sm text-gray-400 text-sm border mr-1">
-                        Replan
-                    </button>
+                            <button onClick={() => this.replan()} className="border rounded-lg w-full px-2 py-1 border-gray-100 active:border-gray-500 hover:bg-gray-100 text-center focus:outline-none active:shadow-sm text-xs text-gray-200">
+                                R
+                            </button>
 
-                    <button onClick={() => this.openInAt()} className="w-full rounded-lg py-2 active:border-gray-500 hover:border-gray-300 text-center focus:outline-none active:shadow-sm text-gray-400 text-sm border mr-1">
-                        Airtable
-                    </button>
-                </div>
-
-                <div className="grid grid-cols-8 mt-2">
-                    <RateButton val="1" id={this.props.id} rating={this.props.rating} style="rounded-l-lg border-l"/>
-                    <RateButton val="2" id={this.props.id} rating={this.props.rating} />
-                    <RateButton val="3" id={this.props.id} rating={this.props.rating} />
-                    <RateButton val="4" id={this.props.id} rating={this.props.rating} />
-                    <RateButton val="5" id={this.props.id} rating={this.props.rating} />
-                    <RateButton val="6" id={this.props.id} rating={this.props.rating} />
-                    <RateButton val="7" id={this.props.id} rating={this.props.rating} />
-                    <RateButton val="8" id={this.props.id} style="rounded-r-lg"/>
+                            <button onClick={() => this.openInAt()} className="border rounded-lg w-full px-2 py-1 border-gray-100 active:border-gray-500 hover:bg-gray-100 text-center focus:outline-none active:shadow-sm text-xs text-gray-200">
+                                A
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </a>
                 

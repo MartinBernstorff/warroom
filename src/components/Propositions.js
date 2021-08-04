@@ -33,7 +33,7 @@ function Propositions(props) {
   console.log(activities)
 
   return (
-    <div className="grid mx-auto max-w-5xl">
+    <div className="grid max-w-5xl">
         {/* <ul className="grid grid-cols-2">
           {goals.length > 0 ? (
               goals

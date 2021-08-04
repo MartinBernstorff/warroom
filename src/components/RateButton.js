@@ -24,7 +24,7 @@ class RateButton extends Component {
         return (
         <div>
             <button onClick={() => this.promote()}
-                    className={"w-full px-1 py-1 border-gray-50 active:border-gray-500 hover:bg-gray-100 text-center focus:outline-none active:shadow-sm text-xs border-r border-t border-b text-gray-200 " + (this.props.rating === this.props.val ? "bg-gray-50" : "") + " " + this.props.style}
+                    className={"w-full px-1 py-1 border-gray-100 active:border-gray-500 hover:bg-gray-100 text-center focus:outline-none active:shadow-sm text-xs border-r border-t border-b text-gray-200 " + (this.props.rating === this.props.val ? "bg-gray-50" : "") + " " + this.props.style}
                 >
                     {this.props.val}
             </button>

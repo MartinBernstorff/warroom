@@ -17,8 +17,8 @@ export default function TaskListFun(props) {
 
     return (
         <div>
-            <h1 className="text-3xl font-bold mt-4">Exclusively fun</h1>
-            <div className="justify-center max-w-full w-full grid grid-cols-2 grid-flow-row-dense gap-2">
+            <h1 className="text-xs font-bold mt-4 text-gray-300 text-center">––– Maybe –––</h1>
+            <div className="justify-center max-w-full w-full grid grid-cols-1 grid-flow-row-dense gap-2">
                 
                     {activities.length > 0 ? (
                         activities
@@ -28,7 +28,7 @@ export default function TaskListFun(props) {
                         })
                         .filter(record => record.fields["exec-date"] === today)
                         .filter(record => typeof record.fields["time-of-day"] !== "undefined")
-                        .filter(record => record.fields["time-of-day"].includes("fun") === true)
+                        .filter(record => record.fields["time-of-day"].includes("Maybe") === true)
                         .map((record) => (
                             <Record
                                 name={record.fields.what_string}

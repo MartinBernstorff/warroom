@@ -38,15 +38,12 @@ export default function TaskListMorning(props) {
 
     return (
         <div className="mt-2">
-            <h1 className="text-3xl font-bold">Morning</h1>
-            <div className="justify-center max-w-full w-full grid grid-cols-2 grid-flow-row-dense gap-2">
+            <h1 className="text-xs font-bold mt-4 text-gray-300 text-center">––– Morning –––</h1>
+            <div className="justify-center max-w-full w-full grid grid-cols-1 grid-flow-row-dense gap-2">
                 
                     {activities.length > 0 ? (
                         activities
                         /* .filter(record => record.fields["Concluded formula"] === 0) */
-                        .sort(function (a, b) {
-                            return a.fields["Concluded formula"] - b.fields["Concluded formula"];
-                        })
                         .filter(record => record.fields["exec-date"] === yesterday)
                         .filter(record => typeof record.fields["time-of-day"] !== "undefined")
                         .filter(record => record.fields["time-of-day"].includes("Morning") === true)

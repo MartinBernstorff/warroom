@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Carousel from "react-multi-carousel";
 import PropositionInput from './components/PropositionInput'
 import "react-multi-carousel/lib/styles.css";
 import Airtable from 'airtable-node'
@@ -10,12 +9,14 @@ import Propositions from './components/Propositions';
 import {
   Route,
   NavLink,
-  HashRouter
+  HashRouter, 
+  Redirect
 } from "react-router-dom";
 
 import Yesterday from './components/Yesterday'
+import Today from './components/Today'
 import Values from './components/Values';
-import Today from './components/Today';
+import TaskList from './components/TaskList';
 
 
 var today = new Date();
@@ -49,23 +50,26 @@ function App(props) {
 
   return (
     <HashRouter>
-      <div className="grid mx-auto max-w-3xl">
-        <div className="grid m-4 gap-4 content grid-cols-1">
+      <div className="grid mx-auto max-w-2xl">
+        <div className="grid md:m-4 m-2 md:gap-4 gap-2 content grid-cols-1">
           <PropositionInput
             airtable={airtable}
           />
 
-          <ul className="grid grid-cols-4 gap-2">  
+          <ul className="grid sm:grid-cols-5 grid-cols-4 gap-2">  
             <li><NavLinkButton to="/yesterday" text="Review" /></li>
             <li><NavLinkButton to="/values" text="Values" /></li>
             <li><NavLinkButton to="/today" text="Plan" /></li>
             <li><NavLinkButton to="/propositions" text="Today" /></li>
+            <li><div><a href="https://airtable.com/tblJy7BTWYrsbf5M5/viwlybKN4v201IY8V?blocks=hide" className="block rounded-lg py-2 px-3 active:border-gray-500 hover:border-gray-300 text-center focus:outline-none active:shadow-sm text-gray-400 text-sm border sm:block hidden">Schedule</a></div></li>
           </ul>
 
           <Route path="/yesterday" component={Yesterday}/>
           <Route path="/values" component={Values}/>
           <Route path="/today" component={Today}/>
           <Route path="/propositions" component={Propositions}/>
+
+          <Redirect exact from="/" to="/propositions" />
           
         </div>
       </div>

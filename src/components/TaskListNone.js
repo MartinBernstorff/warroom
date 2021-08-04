@@ -38,7 +38,8 @@ export default function TaskListNone(props) {
 
     return (
         <div>
-            <div className="justify-center max-w-full w-full grid grid-cols-2 grid-flow-row-dense gap-2">
+            <h1 className="text-xs font-bold mt-4 text-gray-300 text-center">––– Misc. –––</h1>
+            <div className="justify-center max-w-full w-full grid grid-cols-1 grid-flow-row-dense gap-2">
                 
                     {activities.length > 0 ? (
                         activities
