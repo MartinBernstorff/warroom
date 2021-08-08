@@ -24,19 +24,20 @@ String.prototype.toHHMM = function () {
 class ActivityCard extends Component {
     replan = () => {
         var element = document.getElementById(this.props.id);
-        console.log(this.props.name + " " + this.props.promotion)
-        element.style.opacity = "0.2";
+        console.log("Replanning " + this.props.name + "with 'What?' as " + this.props.what)
+        element.style.opacity = "0.5";
         
         Log.create({"fields": {
-            "What?": this.props.what_id,
+            "What?": this.props.what,
             "Context": "Leisure",
             "exec-date": today_string,
-            "Group #": 5
+            "Group #": 5,
+            "Learning points": this.props.notes
         }}).then(
             resp => {
                 console.log(resp)
                 element.style.borderColor = "yellow";
-                element.style.borderWidth = "medium";
+                element.style.borderWidth = "small";
             }
         )
     }

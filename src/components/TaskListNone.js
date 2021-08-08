@@ -58,6 +58,8 @@ export default function TaskListNone(props) {
                                 goals={record.fields["goals_string"]}
                                 concluded={record.fields["Concluded formula"]}
                                 duration={record.fields["Duration"]}
+                                what={record.fields["What?"]}
+                                notes={record.fields["Learning points"]}
                             />
                         ))
                     ) : (

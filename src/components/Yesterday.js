@@ -33,11 +33,11 @@ class Yesterday extends Component {
               <AirtableDate />
             </div>
             <div>
-              <RateToday/>
               <TaskListMorning/>
               <TaskListAfternoon/>
               <TaskListEvening/>
               <TaskListNone/>
+              <RateToday/>
             </div>
           </Carousel>
       </div>

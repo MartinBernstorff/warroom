@@ -56,6 +56,8 @@ export default function TaskListAfternoon(props) {
                                 notes={record.fields["Learning points"]}
                                 goals={record.fields["goals_string"]}
                                 concluded={record.fields["Concluded formula"]}
+                                what={record.fields["What?"]}
+                                notes={record.fields["Learning points"]}
                             />
                         ))
                     ) : (
