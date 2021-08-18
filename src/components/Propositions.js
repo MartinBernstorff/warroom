@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import TaskListMorning from './propositions/TaskListMorning'
-import TaskListAfternoon from './propositions/TaskListAfternoon'
-import TaskListEvening from './propositions/TaskListEvening'
-import TaskListNone from './propositions/TaskListNone';
 import Airtable from 'airtable-node';
-import TaskListFun from './propositions/TaskListFun';
+import PropositionSection from './propositions/PropositionSection';
+import TaskListNone from './propositions/TaskListNone';
 
 const airtable = new Airtable({apiKey: 'keywMvCl7aRV4a5af'})
     .base('appMcSmdPtPWcBhIX')
@@ -50,27 +47,43 @@ function Propositions(props) {
           )}
           </ul> */}
       <div className="grid">
-        <TaskListNone 
+        <TaskListNone
           reRun={reRun}
           activities={activities}
           airtable={airtable}
         />
-        <TaskListMorning 
+        <PropositionSection
           reRun={reRun}
+          Title="Morning (8-11)"
+          TimeOfDay="Morning"
           activities={activities}
           airtable={airtable}
         />
-        <TaskListAfternoon
+        <PropositionSection
           reRun={reRun}
+          Title="Noon (12-15)"
+          TimeOfDay="Noon"
           activities={activities}
           airtable={airtable}
         />
-        <TaskListEvening
+        <PropositionSection
           reRun={reRun}
+          Title="Afternoon (16-18)"
+          TimeOfDay="Afternoon"
           activities={activities}
           airtable={airtable}
         />
-        <TaskListFun
+        <PropositionSection
+          reRun={reRun}
+          Title="Evening (19-21)"
+          TimeOfDay="Evening"
+          activities={activities}
+          airtable={airtable}
+        />
+        <PropositionSection
+          reRun={reRun}
+          Title="Maybe"
+          TimeOfDay="Maybe"
           activities={activities}
           airtable={airtable}
         />

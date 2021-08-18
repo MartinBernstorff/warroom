@@ -50,7 +50,9 @@ class ActivityCard extends Component {
             console.log(resp)
             
             element.style.borderColor = "red";
-            element.style.borderWidth = "medium";
+            element.style.borderWidth = "small";
+            element.style.maxHeight = "45 px";
+            element.style.overflow = "hidden";
         }
 
         )

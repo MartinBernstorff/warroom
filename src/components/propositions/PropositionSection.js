@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Record from "./Record";
+import PropositionCard from './PropositionCard';
 import Airtable from 'airtable-node'
 
 var today = new Date();
@@ -8,17 +8,13 @@ var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 
 today = dd + '/' + mm;
 
-export default function TaskListMorning(props) {
+export default function PropositionSection(props) {
 
     const activities = props.activities
 
-    console.log(activities)
-
-    console.log("Testing " + props.cycle)
-
     return (
         <div>
-            <h1 className="text-xs font-bold mt-4 text-gray-300 text-center">––– Morning –––</h1>
+            <h1 className="text-xs font-bold mt-4 text-gray-300 text-center">––– {props.Title} –––</h1>
             <div className="justify-center max-w-full w-full grid grid-cols-1 grid-flow-row-dense gap-2">
                 
                     {activities.length > 0 ? (
@@ -26,9 +22,9 @@ export default function TaskListMorning(props) {
                         /* .filter(record => record.fields["Concluded formula"] === 0) */
                         .filter(record => record.fields["exec-date"] === today)
                         .filter(record => typeof record.fields["time-of-day"] !== "undefined")
-                        .filter(record => record.fields["time-of-day"].includes("Morning") === true)
+                        .filter(record => record.fields["time-of-day"].includes(props.TimeOfDay) === true)
                         .map((record) => (
-                            <Record
+                            <PropositionCard
                                 name={record.fields.what_string}
                                 key={record.id}
                                 id={record.id}

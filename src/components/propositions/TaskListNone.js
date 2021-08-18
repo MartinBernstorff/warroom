@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import Record from "./Record";
-import Airtable from 'airtable-node'
+import PropositionCard from "./PropositionCard";
 
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
@@ -26,7 +24,7 @@ export default function TaskListNone(props) {
                         .filter(record => record.fields["exec-date"] === today)
                         .filter(record => typeof record.fields["time-of-day"] === "undefined")
                         .map((record) => (
-                            <Record
+                            <PropositionCard
                                 name={record.fields.what_string}
                                 key={record.id}
                                 id={record.id}

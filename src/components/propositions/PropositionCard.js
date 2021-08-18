@@ -5,7 +5,7 @@ const Log = new Airtable({apiKey: 'keywMvCl7aRV4a5af'})
     .base('appMcSmdPtPWcBhIX')
     .table('Log')
 
-class Record extends Component {
+class PropositionCard extends Component {
     constructor(props) {
         super(props);
     }
@@ -36,8 +36,6 @@ class Record extends Component {
             element.classList.add("opacity-50")
         })
     }
-
-    /* let atHref = "https://airtable.com/tblo6SQZQakNq4URH/viwd4XwZ1wC8esYgg" + this.props.id; */
 
     openInAt = () => {
         console.log("Opening in Airtable")
@@ -105,4 +103,4 @@ class Record extends Component {
     }
 }
 
-export default Record
+export default PropositionCard
