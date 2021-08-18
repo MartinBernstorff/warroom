@@ -8,6 +8,9 @@ const Log = new Airtable({apiKey: 'keywMvCl7aRV4a5af'})
 class PropositionCard extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            concluded: props.concluded
+        }
     }
     
     delete = () => {
@@ -19,21 +22,21 @@ class PropositionCard extends Component {
             console.log(resp)
             
             element.style.borderColor = "red";
-            element.style.borderWidth = "4px";
         })
     }
 
     markComplete = () => {
+        this.setState({
+            concluded: 1
+        })
+
         var element = document.getElementById(this.props.id);
-        element.classList.add("border-green-700")
+        element.classList.remove("border-green-700")
+        element.classList.add("border-yellow-100")
         
         Log.update(this.props.id, {"Concluded": true}).then(resp => {
             console.log(resp)
-            console.log("Concluded? " + this.props.concluded)
-            
-            element.classList.remove("border")
-            element.classList.add("border-4")
-            element.classList.add("opacity-50")
+            console.log("Concluded? " + this.state.concluded)
         })
     }
 
@@ -45,26 +48,26 @@ class PropositionCard extends Component {
     render() {
         return (
         <div>
-            <a href = {this.href} className={this.props.concluded === 1 ? 
+            <a href = {this.href} className={this.state.concluded === 1 ? 
                     "border border-green-700 shadow-sm active:border-gray-500 group block rounded-lg p-1 sm:p-2 text-left opacity-50 w-full -mb-1" : 
                     "shadow-sm active:border-gray-500 group block rounded-lg p-2 sm:p-4 hover:border-gray-300 m-0 sm:m-0 text-left border w-full"} id={this.props.id}
             >
                 <div className="grid grid-cols-2">
                     <div>
                         <div className="pb-0">
-                            <div className={this.props.concluded === 1 ? 
+                            <div className={this.state.concluded === 1 ? 
                                 "font-medium text-xs" : 
                                 "font-medium text-black text-xl sm:text-2xl"}
                             >
                                 {this.props.name}
                             </div>
 
-                            {typeof this.props.notes !== "undefined" ? (<div className={"text-xs sm:text-sm text-gray-500 m-t-3" + (this.props.concluded === 1 ? " hidden" : "")}>{this.props.notes}</div>) : ""}
+                            {typeof this.props.notes !== "undefined" ? (<div className={"text-xs sm:text-sm text-gray-500 m-t-3" + (this.state.concluded === 1 ? " hidden" : "")}>{this.props.notes}</div>) : ""}
                         </div>
 
                     </div>
                     <div>
-                        <div className={"grid grid-cols-2 sm:grid-cols-3 space-x-1 mt-1 space-y-0 sm:space-y-0" + (this.props.concluded === 1 ? " hidden" : "")}>
+                        <div className={"grid grid-cols-2 sm:grid-cols-3 space-x-1 mt-1 space-y-0 sm:space-y-0" + (this.state.concluded === 1 ? " hidden" : "")}>
                             <button onClick={() => this.markComplete()}
                                     className= "rounded-lg px-3 py-2 border active:border-gray-500 text-center focus:outline-none text-xs text-gray-400 hover:bg-gray-50"
                                 >
@@ -90,7 +93,7 @@ class PropositionCard extends Component {
                                     this.props.goals
                                         .split(",")
                                         .map((goal) => (
-                                            <div className={"inline-block rounded py-1 px-1 bg-gray-300 text-white mr-1 mt-1 text-xs" +  (this.props.concluded === 1 ? " hidden" : "")}>{goal}</div>
+                                            <div className={"inline-block rounded py-1 px-1 bg-gray-300 text-white mr-1 mt-1 text-xs" +  (this.state.concluded === 1 ? " hidden" : "")}>{goal}</div>
                                         ))
                                     ) : (
                                         ""
