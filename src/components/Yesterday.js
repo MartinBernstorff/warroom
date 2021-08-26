@@ -8,6 +8,7 @@ import Carousel from "react-multi-carousel";
 import AirtableDate from "./AirtableDate";
 import Airtable from "airtable-node";
 import ResetValues from "./ResetValues";
+import TaskListNoon from "./TaskListNoon";
 
 const responsive = {
   mobile: {
@@ -34,6 +35,7 @@ class Yesterday extends Component {
             </div>
             <div>
               <TaskListMorning/>
+              <TaskListNoon />
               <TaskListAfternoon/>
               <TaskListEvening/>
               <TaskListNone/>
