@@ -68,6 +68,13 @@ function Propositions(props) {
         />
         <PropositionSection
           reRun={reRun}
+          Title="Maybe (work)"
+          TimeOfDay="Maybe (work)"
+          activities={activities}
+          airtable={airtable}
+        />
+        <PropositionSection
+          reRun={reRun}
           Title="Afternoon (16-18)"
           TimeOfDay="Afternoon"
           activities={activities}
@@ -82,8 +89,8 @@ function Propositions(props) {
         />
         <PropositionSection
           reRun={reRun}
-          Title="Maybe"
-          TimeOfDay="Maybe"
+          Title="Maybe (leisure)"
+          TimeOfDay="Maybe (leisure)"
           activities={activities}
           airtable={airtable}
         />

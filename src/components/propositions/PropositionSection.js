@@ -35,7 +35,7 @@ export default function PropositionSection(props) {
                             />
                         ))
                     ) : (
-                        <p>Fetching propositions if any uncompleted...</p>
+                        ""
                     )}
             </div>
         </div>
