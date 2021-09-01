@@ -47,6 +47,7 @@ export default function TaskList(props) {
                         rating={record.fields["T Well Spent?"]}
                         group={record.fields["Group #"]}
                         duration={record.fields["Rough time spent (mins)"]}
+                        time-of-day={record.fields["time-of-day"]}
                     />
                 ))
             ) : (

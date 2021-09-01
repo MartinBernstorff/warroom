@@ -6,7 +6,6 @@ import TaskListEvening from './TaskListEvening'
 import TaskListNone from './TaskListNone';
 import Carousel from "react-multi-carousel";
 import AirtableDate from "./AirtableDate";
-import Airtable from "airtable-node";
 import ResetValues from "./ResetValues";
 import TaskListNoon from "./TaskListNoon";
 
