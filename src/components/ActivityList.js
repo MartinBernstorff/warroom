@@ -33,9 +33,7 @@ export default function TaskList(props) {
         <div className="justify-center max-w-full w-full grid grid-cols-2">
             {activities.length > 0 ? (
                 activities
-                /* .filter(record => record.fields["Show in menu"] === 1)
-                .filter(record => record.fields["Fin"] !== true)
-                .sort((a,b) => (a.fields["Rting_UL"] < b.fields["Rting_UL"]) ? 1 : ((b.fields["Rting_UL"] < a.fields["Rting_UL"] ) ? -1 : 0)) */
+                .filter(record => record.fields.hide_today != true)
                 .map((record) => (
                     <ActivityCard
                         name={record.fields.what_string}

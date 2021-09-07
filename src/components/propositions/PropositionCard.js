@@ -25,6 +25,15 @@ class PropositionCard extends Component {
         })
     }
 
+    hide = () => {
+        var element = document.getElementById(this.props.id);
+        element.classList.add("hidden")
+
+        Log.update(this.props.id, {"hide_today": true}).then(resp => {
+            console.log(resp)
+        })
+    }
+
     markComplete = () => {
         this.setState({
             concluded: 1
@@ -67,7 +76,7 @@ class PropositionCard extends Component {
 
                     </div>
                     <div>
-                        <div className={"grid grid-cols-2 sm:grid-cols-3 space-x-1 mt-1 space-y-0 sm:space-y-0" + (this.state.concluded === 1 ? " hidden" : "")}>
+                        <div className={"grid grid-cols-2 sm:grid-cols-4 space-x-1 mt-1 space-y-0 sm:space-y-0" + (this.state.concluded === 1 ? " hidden" : "")}>
                             <button onClick={() => this.markComplete()}
                                     className= "rounded-lg px-3 py-2 border active:border-gray-500 text-center focus:outline-none text-xs text-gray-400 hover:bg-gray-50"
                                 >
@@ -78,6 +87,12 @@ class PropositionCard extends Component {
                                     className= "rounded-lg px-3 py-2 border active:border-gray-500 text-center focus:outline-none text-xs text-gray-400 hover:bg-gray-50"
                                 >
                                     Delete
+                            </button>
+
+                            <button onClick={() => this.hide()}
+                                    className= "rounded-lg px-3 py-2 border active:border-gray-500 text-center focus:outline-none text-xs text-gray-400 hover:bg-gray-50"
+                                >
+                                    Hide
                             </button>
 
                             <button onClick={() => this.openInAt()}
