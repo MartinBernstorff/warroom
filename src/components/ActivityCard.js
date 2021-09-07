@@ -32,8 +32,7 @@ class ActivityCard extends Component {
             "Context": "Leisure",
             "exec-date": today_string,
             "Group #": 5,
-            "Learning points": this.props.notes,
-            "time-of-day": this.props["time-of-day"]
+            "Learning points": this.props.notes
         }}).then(
             resp => {
                 console.log(resp)

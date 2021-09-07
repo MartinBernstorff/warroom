@@ -60,7 +60,6 @@ export default function TaskListNone(props) {
                                 duration={record.fields["Duration"]}
                                 what={record.fields["What?"]}
                                 notes={record.fields["Learning points"]}
-                                time-of-day={record.fields["time-of-day"]}
                             />
                         ))
                     ) : (
