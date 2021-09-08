@@ -19,10 +19,10 @@ export default function PropositionSection(props) {
                 
                     {activities.length > 0 ? (
                         activities
-                        /* .filter(record => record.fields["Concluded formula"] === 0) */
                         .filter(record => record.fields["exec-date"] === today)
                         .filter(record => typeof record.fields["time-of-day"] !== "undefined")
                         .filter(record => record.fields["time-of-day"].includes(props.TimeOfDay) === true)
+                        .filter(record => record.fields.hide_today !== true)
                         .map((record) => (
                             <PropositionCard
                                 name={record.fields.what_string}
